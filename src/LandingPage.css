@@ -1,114 +1,135 @@
 .landing-wrapper {
-    min-height: 100vh;
-    background-color: #111;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
-    padding: 2rem;
-    box-sizing: border-box;
-  }
-  
-  .logo-image {
-    width: 500px;
-    height: 500px;
-    margin-bottom: 0rem; /* Make sure no extra margin */
-  }
-  
-  .fade-logo {
-    margin-bottom: -1.5rem; /* 🔥 control vertical spacing between logo + tagline */
+  min-height: 100vh;
+  background-color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.logo-image {
+  width: 500px;
+  height: 500px;
+  margin-bottom: 0; /* no extra margin */
+}
+
+.fade-logo {
+  margin-bottom: -1.5rem; /* control vertical spacing between logo + tagline */
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+.fade-tagline {
+  margin-top: 0; /* no extra margin */
+  font-size: 1.5rem;
+  font-weight: normal;
+  max-width: 500px;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards;
+  animation-delay: 1.2s;
+}
+
+.fade-button {
+  margin-top: 2rem;
+  background: linear-gradient(270deg, #00ffff, rgb(255, 80, 197), #a020f0);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards, pulse 3s ease-in-out 2.5s infinite;
+  /* 👆 BOTH fadeIn and pulse at once */
+}
+
+.fade-button:hover {
+  transform: scale(1.05);
+}
+
+/* Fade-in Keyframes */
+@keyframes fadeIn {
+  0% {
     opacity: 0;
-    animation: fadeIn 1.5s ease-out forwards;
-    animation-delay: 0.5s;
+    transform: translateY(20px);
   }
-  
-  .fade-tagline {
-    margin-top: 0rem; /* ✅ let .fade-logo handle margin instead */
-    font-size: 1.5rem;
-    font-weight: normal;
-    max-width: 500px;
-    opacity: 0;
-    animation: fadeIn 1.5s ease-out forwards;
-    animation-delay: 1.2s;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .fade-button {
-    margin-top: 2rem;
-    background: linear-gradient(270deg, #00ffff, rgb(255, 80, 197), #a020f0);
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    border: none;
-    color: #fff;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    opacity: 0;
-    animation: fadeIn 1.5s ease-out forwards;
-    animation-delay: 2s;
+}
+
+/* Pulse Keyframes */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(160, 32, 240, 0.7); /* purple glow */
   }
-  
-  .fade-button:hover {
+  70% {
     transform: scale(1.05);
+    box-shadow: 0 0 5px 5px rgba(160, 32, 240, 0);
   }
-  
-  /* 🔥 Responsive Mobile Tweaks */
-  @media (max-width: 768px) {
-    .logo-image {
-      width: 300px;
-      height: 300px;
-    }
-  
-    .fade-logo {
-      margin-bottom: -1rem; /* 🔥 less negative margin on mobile */
-    }
-  
-    .fade-tagline {
-      font-size: 1.2rem;
-      max-width: 90%;
-    }
-  
-    .fade-button {
-        margin-top: 2rem;
-        background: linear-gradient(270deg, #00ffff, rgb(255, 80, 197), #a020f0);
-        padding: 0.75rem 1.5rem;
-        border-radius: 8px;
-        border: none;
-        color: #fff;
-        font-size: 1.1rem;
-        cursor: pointer;
-        opacity: 0;
-        animation: fadeIn 1.5s ease-out forwards, pulse 3s ease-in-out 2.5s infinite; 
-        /* 🔥 fadeIn first, then pulse forever after a delay */
-      }
-      
-      .fade-button:hover {
-        transform: scale(1.1); /* Manual hover still bigger */
-      }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(160, 32, 240, 0);
   }
-  
-  /* Fade-in Keyframes */
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+}
+
+.pulse-button {
+  animation: pulse 2s infinite;
+}
+
+/* Form Styling */
+#signup input {
+  width: 300px;
+  max-width: 90%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #555;
+  background-color: #222;
+  color: #fff;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover + Focus Effects */
+#signup input:hover,
+#signup input:focus {
+  border-color: #00ffff;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.6),
+              0 0 16px rgba(255, 80, 197, 0.4),
+              0 0 24px rgba(160, 32, 240, 0.3);
+  outline: none;
+}
+
+/* 🔥 Responsive Mobile Tweaks */
+@media (max-width: 768px) {
+  .logo-image {
+    width: 300px;
+    height: 300px;
   }
 
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.05); /* Scale up slightly */
-    }
-    100% {
-      transform: scale(1);
-    }
+  .fade-logo {
+    margin-bottom: -1rem;
   }
-  
+
+  .fade-tagline {
+    font-size: 1.2rem;
+    max-width: 90%;
+  }
+
+  .fade-button {
+    margin-top: 3rem;
+    font-size: 1rem;
+  }
+
+  #signup input {
+    width: 90%;
+  }
+}
