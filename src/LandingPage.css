@@ -14,16 +14,18 @@
   .logo-image {
     width: 500px;
     height: 500px;
+    margin-bottom: 0rem; /* Make sure no extra margin */
   }
   
   .fade-logo {
+    margin-bottom: -1.5rem; /* 🔥 control vertical spacing between logo + tagline */
     opacity: 0;
     animation: fadeIn 1.5s ease-out forwards;
     animation-delay: 0.5s;
   }
   
   .fade-tagline {
-    margin-top: -4.75rem;
+    margin-top: 0rem; /* ✅ let .fade-logo handle margin instead */
     font-size: 1.5rem;
     font-weight: normal;
     max-width: 500px;
@@ -51,6 +53,41 @@
     transform: scale(1.05);
   }
   
+  /* 🔥 Responsive Mobile Tweaks */
+  @media (max-width: 768px) {
+    .logo-image {
+      width: 300px;
+      height: 300px;
+    }
+  
+    .fade-logo {
+      margin-bottom: -1rem; /* 🔥 less negative margin on mobile */
+    }
+  
+    .fade-tagline {
+      font-size: 1.2rem;
+      max-width: 90%;
+    }
+  
+    .fade-button {
+        margin-top: 2rem;
+        background: linear-gradient(270deg, #00ffff, rgb(255, 80, 197), #a020f0);
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        border: none;
+        color: #fff;
+        font-size: 1.1rem;
+        cursor: pointer;
+        opacity: 0;
+        animation: fadeIn 1.5s ease-out forwards, pulse 3s ease-in-out 2.5s infinite; 
+        /* 🔥 fadeIn first, then pulse forever after a delay */
+      }
+      
+      .fade-button:hover {
+        transform: scale(1.1); /* Manual hover still bigger */
+      }
+  }
+  
   /* Fade-in Keyframes */
   @keyframes fadeIn {
     0% {
@@ -63,20 +100,15 @@
     }
   }
 
-  @media (max-width: 768px) {
-    .logo-image {
-      width: 300px;
-      height: 300px;
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
     }
-  
-    .fade-tagline {
-      font-size: 1.2rem;
-      max-width: 90%;
+    50% {
+      transform: scale(1.05); /* Scale up slightly */
     }
-  
-    .fade-button {
-      font-size: 1rem;
-      padding: 0.6rem 1.2rem;
+    100% {
+      transform: scale(1);
     }
   }
   
