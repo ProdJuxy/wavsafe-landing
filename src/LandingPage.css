@@ -1,0 +1,82 @@
+.landing-wrapper {
+    min-height: 100vh;
+    background-color: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  
+  .logo-image {
+    width: 500px;
+    height: 500px;
+  }
+  
+  .fade-logo {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+    animation-delay: 0.5s;
+  }
+  
+  .fade-tagline {
+    margin-top: -4.75rem;
+    font-size: 1.5rem;
+    font-weight: normal;
+    max-width: 500px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+    animation-delay: 1.2s;
+  }
+  
+  .fade-button {
+    margin-top: 2rem;
+    background: linear-gradient(270deg, #00ffff, rgb(255, 80, 197), #a020f0);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+    animation-delay: 2s;
+  }
+  
+  .fade-button:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Fade-in Keyframes */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .logo-image {
+      width: 300px;
+      height: 300px;
+    }
+  
+    .fade-tagline {
+      font-size: 1.2rem;
+      max-width: 90%;
+    }
+  
+    .fade-button {
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+    }
+  }
+  

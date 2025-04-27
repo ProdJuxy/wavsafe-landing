@@ -1,0 +1,37 @@
+/* Reset basic layout */
+#root {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* (Optional) Button hover effect */
+button:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* (Optional) Smooth font scaling on mobile */
+h1, h2 {
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+/* You can delete all Vite "logo" and "card" stuff */
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
