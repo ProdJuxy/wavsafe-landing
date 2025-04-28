@@ -138,7 +138,7 @@ function LandingPage() {
       </div>
 
       {/* Footer */}
-      <footer className="fade-footer" style={{ marginTop: '4rem', textAlign: 'center' }}>
+      <footer className="fade-footer" style={{ marginTop: '20rem', textAlign: 'center' }}>
         <p>© 2025 WavSafe. All rights reserved.</p>
         <p>Privacy Policy | Terms of Service</p>
       </footer>
