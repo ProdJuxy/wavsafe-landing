@@ -7,6 +7,8 @@ function LandingPage() {
   const [email, setEmail] = useState('');
   const [socialHandle, setSocialHandle] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+
 
   return (
     <div className="landing-wrapper">
@@ -48,6 +50,7 @@ function LandingPage() {
         alignItems: 'center',
         gap: '1rem'
       }}>
+
         {/* Heading */}
         <h3 style={{
           marginBottom: '2rem',
@@ -104,7 +107,11 @@ function LandingPage() {
               const { data, error } = await supabase
                 .from('signups') // <- your new table name
                 .insert([
-                  { email: email.trim(), social_handle: socialHandle.trim() }
+                  {
+                    email: email.trim(),
+                    social_handle: socialHandle.trim(),
+                    created_at: new Date().toISOString(),
+                  }
                 ]);
           
               if (error) {
@@ -136,6 +143,15 @@ function LandingPage() {
           </p>
         )}
       </div>
+
+      
+      <a 
+        href="https://app.wavsafe.com"
+        className="launch-app-button"
+      >
+        Launch WavSafe App
+      </a>
+
 
       {/* Footer */}
       <footer className="fade-footer" style={{ marginTop: '20rem', textAlign: 'center' }}>
